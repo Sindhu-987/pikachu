@@ -2,474 +2,88 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CSS Pikachu Art Festival</title>
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            min-height: 100vh;
-            background: linear-gradient(135deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4, #ffeaa7);
-            background-size: 400% 400%;
-            animation: gradientShift 8s ease infinite;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-family: 'Arial', sans-serif;
-            overflow: hidden;
-        }
-
-        @keyframes gradientShift {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-
-        .container {
-            position: relative;
-            transform: scale(1.2);
-            animation: float 6s ease-in-out infinite;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: scale(1.2) translateY(0px) rotate(0deg); }
-            50% { transform: scale(1.2) translateY(-20px) rotate(2deg); }
-        }
-
-        .pikachu {
-            position: relative;
-            width: 300px;
-            height: 300px;
-        }
-
-        /* Head */
-        .head {
-            width: 180px;
-            height: 160px;
-            background: radial-gradient(circle at 30% 30%, #ffeb3b, #ffc107);
-            border-radius: 50% 50% 45% 45%;
-            position: absolute;
-            top: 80px;
-            left: 60px;
-            box-shadow: 
-                inset -10px -15px 0 rgba(255, 193, 7, 0.3),
-                0 15px 30px rgba(0, 0, 0, 0.2),
-                0 0 50px rgba(255, 235, 59, 0.4);
-            animation: headGlow 4s ease-in-out infinite;
-        }
-
-        @keyframes headGlow {
-            0%, 100% { box-shadow: inset -10px -15px 0 rgba(255, 193, 7, 0.3), 0 15px 30px rgba(0, 0, 0, 0.2), 0 0 50px rgba(255, 235, 59, 0.4); }
-            50% { box-shadow: inset -10px -15px 0 rgba(255, 193, 7, 0.4), 0 20px 40px rgba(0, 0, 0, 0.3), 0 0 80px rgba(255, 235, 59, 0.6); }
-        }
-
-        /* Ears */
-        .ear {
-            width: 35px;
-            height: 80px;
-            background: linear-gradient(45deg, #ffeb3b, #ffc107);
-            border-radius: 80% 20% 50% 50%;
-            position: absolute;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-        }
-
-        .ear-left {
-            top: 20px;
-            left: 40px;
-            transform: rotate(-25deg);
-            animation: earWiggle 3s ease-in-out infinite;
-        }
-
-        .ear-right {
-            top: 20px;
-            right: 40px;
-            transform: rotate(25deg);
-            animation: earWiggle 3s ease-in-out infinite reverse;
-        }
-
-        @keyframes earWiggle {
-            0%, 100% { transform: rotate(-25deg); }
-            50% { transform: rotate(-35deg); }
-        }
-
-        .ear-tip {
-            width: 20px;
-            height: 25px;
-            background: linear-gradient(45deg, #212121, #424242);
-            border-radius: 50% 50% 20% 20%;
-            position: absolute;
-            top: 5px;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-
-        /* Eyes */
-        .eye {
-            width: 25px;
-            height: 25px;
-            background: radial-gradient(circle, #212121, #000);
-            border-radius: 50%;
-            position: absolute;
-            top: 120px;
-            animation: blink 4s infinite;
-        }
-
-        .eye-left {
-            left: 100px;
-        }
-
-        .eye-right {
-            right: 100px;
-        }
-
-        @keyframes blink {
-            0%, 90%, 100% { transform: scaleY(1); }
-            95% { transform: scaleY(0.1); }
-        }
-
-        .eye-shine {
-            width: 8px;
-            height: 8px;
-            background: radial-gradient(circle, #fff, #f5f5f5);
-            border-radius: 50%;
-            position: absolute;
-            top: 5px;
-            left: 8px;
-            animation: sparkle 2s ease-in-out infinite;
-        }
-
-        @keyframes sparkle {
-            0%, 100% { opacity: 1; transform: scale(1); }
-            50% { opacity: 0.7; transform: scale(1.2); }
-        }
-
-        /* Cheeks */
-        .cheek {
-            width: 30px;
-            height: 25px;
-            background: radial-gradient(circle, #f44336, #d32f2f);
-            border-radius: 50%;
-            position: absolute;
-            top: 135px;
-            box-shadow: 0 0 20px rgba(244, 67, 54, 0.6);
-            animation: cheekGlow 2s ease-in-out infinite;
-        }
-
-        .cheek-left {
-            left: 55px;
-        }
-
-        .cheek-right {
-            right: 55px;
-        }
-
-        @keyframes cheekGlow {
-            0%, 100% { box-shadow: 0 0 20px rgba(244, 67, 54, 0.6); }
-            50% { box-shadow: 0 0 30px rgba(244, 67, 54, 0.9); }
-        }
-
-        /* Nose */
-        .nose {
-            width: 8px;
-            height: 6px;
-            background: linear-gradient(45deg, #212121, #424242);
-            border-radius: 50%;
-            position: absolute;
-            top: 140px;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-
-        /* Mouth */
-        .mouth {
-            width: 25px;
-            height: 15px;
-            border: 3px solid #212121;
-            border-top: none;
-            border-radius: 0 0 25px 25px;
-            position: absolute;
-            top: 150px;
-            left: 50%;
-            transform: translateX(-50%);
-            animation: smile 5s ease-in-out infinite;
-        }
-
-        @keyframes smile {
-            0%, 100% { transform: translateX(-50%) scale(1); }
-            50% { transform: translateX(-50%) scale(1.1); }
-        }
-
-        /* Body */
-        .body {
-            width: 120px;
-            height: 100px;
-            background: radial-gradient(ellipse at 40% 30%, #ffeb3b, #ffc107);
-            border-radius: 50%;
-            position: absolute;
-            top: 220px;
-            left: 90px;
-            box-shadow: 
-                inset -8px -12px 0 rgba(255, 193, 7, 0.3),
-                0 10px 25px rgba(0, 0, 0, 0.2);
-        }
-
-        /* Arms */
-        .arm {
-            width: 25px;
-            height: 60px;
-            background: linear-gradient(135deg, #ffeb3b, #ffc107);
-            border-radius: 50%;
-            position: absolute;
-            top: 230px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-        }
-
-        .arm-left {
-            left: 65px;
-            transform: rotate(-20deg);
-            animation: armWave 4s ease-in-out infinite;
-        }
-
-        .arm-right {
-            right: 65px;
-            transform: rotate(20deg);
-            animation: armWave 4s ease-in-out infinite reverse;
-        }
-
-        @keyframes armWave {
-            0%, 100% { transform: rotate(-20deg); }
-            50% { transform: rotate(-30deg); }
-        }
-
-        /* Legs */
-        .leg {
-            width: 30px;
-            height: 35px;
-            background: linear-gradient(135deg, #ffeb3b, #ffc107);
-            border-radius: 50%;
-            position: absolute;
-            top: 300px;
-            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
-        }
-
-        .leg-left {
-            left: 110px;
-        }
-
-        .leg-right {
-            right: 110px;
-        }
-
-        /* Tail */
-        .tail {
-            width: 60px;
-            height: 80px;
-            background: linear-gradient(45deg, #ffeb3b, #ffc107);
-            border-radius: 10px 60% 20% 60%;
-            position: absolute;
-            top: 200px;
-            right: 20px;
-            transform: rotate(45deg);
-            animation: tailWag 3s ease-in-out infinite;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-        }
-
-        @keyframes tailWag {
-            0%, 100% { transform: rotate(45deg); }
-            50% { transform: rotate(35deg); }
-        }
-
-        .tail-stripe {
-            width: 100%;
-            height: 15px;
-            background: linear-gradient(45deg, #8d6e63, #5d4037);
-            border-radius: 10px;
-            position: absolute;
-            animation: stripeShimmer 2s ease-in-out infinite;
-        }
-
-        .stripe-1 { top: 15px; }
-        .stripe-2 { top: 35px; }
-
-        @keyframes stripeShimmer {
-            0%, 100% { opacity: 0.8; }
-            50% { opacity: 1; }
-        }
-
-        /* Sparkles around Pikachu */
-        .sparkle {
-            position: absolute;
-            background: radial-gradient(circle, #fff, #ffeb3b);
-            border-radius: 50%;
-            animation: sparkleFloat 4s ease-in-out infinite;
-        }
-
-        .sparkle-1 {
-            width: 6px;
-            height: 6px;
-            top: 50px;
-            left: 50px;
-            animation-delay: 0s;
-        }
-
-        .sparkle-2 {
-            width: 8px;
-            height: 8px;
-            top: 100px;
-            right: 30px;
-            animation-delay: 1s;
-        }
-
-        .sparkle-3 {
-            width: 4px;
-            height: 4px;
-            bottom: 80px;
-            left: 30px;
-            animation-delay: 2s;
-        }
-
-        .sparkle-4 {
-            width: 10px;
-            height: 10px;
-            bottom: 120px;
-            right: 50px;
-            animation-delay: 3s;
-        }
-
-        @keyframes sparkleFloat {
-            0%, 100% { 
-                transform: translateY(0px) scale(1);
-                opacity: 0.8;
-            }
-            25% { 
-                transform: translateY(-15px) scale(1.2);
-                opacity: 1;
-            }
-            50% { 
-                transform: translateY(-25px) scale(0.8);
-                opacity: 0.6;
-            }
-            75% { 
-                transform: translateY(-10px) scale(1.1);
-                opacity: 1;
-            }
-        }
-
-        /* Lightning effect */
-        .lightning {
-            position: absolute;
-            width: 20px;
-            height: 40px;
-            top: 30px;
-            left: 20px;
-            animation: lightning 6s ease-in-out infinite;
-        }
-
-        .lightning::before {
-            content: '';
-            position: absolute;
-            width: 3px;
-            height: 40px;
-            background: linear-gradient(to bottom, #ffeb3b, #fff);
-            transform: rotate(15deg);
-            box-shadow: 0 0 10px #ffeb3b;
-        }
-
-        .lightning::after {
-            content: '';
-            position: absolute;
-            width: 3px;
-            height: 30px;
-            background: linear-gradient(to bottom, #fff, #ffeb3b);
-            top: 20px;
-            left: 8px;
-            transform: rotate(-15deg);
-            box-shadow: 0 0 10px #fff;
-        }
-
-        @keyframes lightning {
-            0%, 90%, 100% { opacity: 0; }
-            95% { opacity: 1; }
-        }
-
-        /* Title */
-        .title {
-            position: absolute;
-            top: -100px;
-            left: 50%;
-            transform: translateX(-50%);
-            font-size: 2.5rem;
-            font-weight: bold;
-            color: #fff;
-            text-shadow: 0 0 20px rgba(255, 235, 59, 0.8);
-            animation: titlePulse 3s ease-in-out infinite;
-        }
-
-        @keyframes titlePulse {
-            0%, 100% { transform: translateX(-50%) scale(1); }
-            50% { transform: translateX(-50%) scale(1.05); }
-        }
-    </style>
+    <link rel="stylesheet" href="style.css"/>
+    <title>Pikachu</title>
 </head>
 <body>
-    <div class="container">
-        <div class="title">⚡ PIKACHU ⚡</div>
-        <div class="pikachu">
-            <!-- Sparkles -->
-            <div class="sparkle sparkle-1"></div>
-            <div class="sparkle sparkle-2"></div>
-            <div class="sparkle sparkle-3"></div>
-            <div class="sparkle sparkle-4"></div>
-            
-            <!-- Lightning -->
-            <div class="lightning"></div>
-            
-            <!-- Head -->
-            <div class="head"></div>
-            
-            <!-- Ears -->
-            <div class="ear ear-left">
-                <div class="ear-tip"></div>
-            </div>
-            <div class="ear ear-right">
-                <div class="ear-tip"></div>
-            </div>
-            
-            <!-- Eyes -->
-            <div class="eye eye-left">
-                <div class="eye-shine"></div>
-            </div>
-            <div class="eye eye-right">
-                <div class="eye-shine"></div>
-            </div>
-            
-            <!-- Cheeks -->
-            <div class="cheek cheek-left"></div>
-            <div class="cheek cheek-right"></div>
-            
-            <!-- Nose -->
+    <div class="pikachu">
+        <div class="ear-left"></div>
+        <div class="ear-right"></div>
+                  <!-- ear -->
+      <div class="pika-body">
+        <div class="head">
+            <div class="eye-left"></div>
+            <div class="eye-right"></div>
             <div class="nose"></div>
-            
-            <!-- Mouth -->
             <div class="mouth"></div>
-            
-            <!-- Body -->
-            <div class="body"></div>
-            
-            <!-- Arms -->
-            <div class="arm arm-left"></div>
-            <div class="arm arm-right"></div>
-            
-            <!-- Legs -->
-            <div class="leg leg-left"></div>
-            <div class="leg leg-right"></div>
-            
-            <!-- Tail -->
-            <div class="tail">
-                <div class="tail-stripe stripe-1"></div>
-                <div class="tail-stripe stripe-2"></div>
+            <div class="cheek-left">
+                <div class="hold-thunder hold-thunder-1">
+                    <div class="thunder thunder-1"></div>
+                    <div class="thunder thunder-2"></div>
+                    <div class="thunder thunder-3"></div>
+                </div>
+                <!-- thunder 1-->
+                <div class="hold-thunder hold-thunder-2">
+                    <div class="thunder thunder-1"></div>
+                    <div class="thunder thunder-2"></div>
+                    <div class="thunder thunder-3"></div>
+                </div>
+                   <!-- thunder 2-->
+                <div class="hold-thunder hold-thunder-3">
+                    <div class="thunder thunder-1"></div>
+                    <div class="thunder thunder-2"></div>
+                    <div class="thunder thunder-3"></div>
+                </div>
+                   <!-- thunder 3-->
+                   <div class="light"></div>
+                   <!-- light -->
+            </div>
+            <div class="cheek-right">
+                <div class="hold-thunder hold-thunder-1">
+                    <div class="thunder thunder-1"></div>
+                    <div class="thunder thunder-2"></div>
+                    <div class="thunder thunder-3"></div>
+                </div>
+                <!-- thunder 1-->
+                <div class="hold-thunder hold-thunder-2">
+                    <div class="thunder thunder-1"></div>
+                    <div class="thunder thunder-2"></div>
+                    <div class="thunder thunder-3"></div>
+                </div>
+                   <!-- thunder 2-->
+                <div class="hold-thunder hold-thunder-3">
+                    <div class="thunder thunder-1"></div>
+                    <div class="thunder thunder-2"></div>
+                    <div class="thunder thunder-3"></div>
+                </div>
+                   <!-- thunder 3-->
+                   <div class="light"></div>
+                   <!-- light -->
             </div>
         </div>
+                    <!-- head-->
+            <div class="mid">
+                <div class="hand-left"></div>
+                <div class="hand-right"></div>
+                <div class="mark-1"></div>
+                <div class="mark-2"></div>
+            </div>
+                    <!-- mid-->
+            <div class="foot-left"></div>
+            <div class="foot-right"></div>
+            <!-- foot -->
+      </div>
+      <!-- body -->
+      <div class="pika-tail">
+          <div class="tail tail-1"></div>
+          <div class="tail tail-2"></div>
+          <div class="tail tail-3"></div>
+          <div class="tail tail-4"></div>
+          <div class="tail tail-5"></div>
+      </div>
+      <!-- tail-->
     </div>
 </body>
 </html>
